@@ -5,6 +5,7 @@ from numpy import mean
 from openpyxl.chart import Reference, LineChart
 from pandas import read_excel, read_csv
 import os.path
+import sys
 
 # 常量定义
 ASTERISK = 100
@@ -381,17 +382,21 @@ def main_main():
                     break
                 else:
                     print("参数输入错误，请重新输入...")
+                    print("-" * ASTERISK)
             else:
                 # 如果目录存在则不创建，并提示目录已存在
                 print('目录不存在，请重新输入')
+                print("-" * ASTERISK)
         else:
-            exit()
+            sys.exit()
 
 
-# 程序小循环
-while True:
-    main_main()
-    print("-" * ASTERISK)
-    order = input("退出请输入 'exit' 来退出小程序~\n继续处理数据就随便输入")
-    if order == "exit":
-        exit()
+if __name__ == '__main__':
+
+    # 程序小循环
+    while True:
+        main_main()
+        print("-" * ASTERISK)
+        order = input("退出请输入 'exit' 来退出小程序~\n继续处理数据就随便输入")
+        if order == "exit":
+            sys.exit()
